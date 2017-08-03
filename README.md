@@ -1,4 +1,4 @@
-# SkillShare - Frontend
+# SkillShare Frontend
 ## Wireframe
 (coming soon...)
 
