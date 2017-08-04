@@ -23,46 +23,49 @@
         </div>
       </nav>
     </header>
-    <main>
-      <section>
-        <!-- sign in form -->
-        <div id="index-banner" class="parallax-container">
-          <div class="section no-pad-bot">
-            <div class="container">
-              <br><br>
-              <h2 class="header center teal-text text-lighten-2">Log In</h2>
-                <form action="index.html" method="post">
-                  <div class="row center">
-                    <div class="col s4"></div>
-                    <div class="input-field col s4">
-                      <input id="username" type="text" class="validate">
-                      <label for="first_name">Username</label>
-                    </div>
-                  </div>
-                  <div class="row center">
-                    <div class="col s4"></div>
-                    <div class="input-field col s4">
-                      <input id="password" type="text" class="validate">
-                      <label for="last_name">Password</label>
-                    </div>
-                  </div>
-                </form>
-              <br><br>
+    <main class="container">
+      <div class="row">
+        <section class="col m8 s12">
+          <h2>Log In</h2>
+          <form>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="username" type="text" class="validate">
+                <label for="username">username</label>
+              </div>
             </div>
-          </div>
-          <!-- <div class="parallax"><img src="http://materializecss.com/templates/parallax-template/background1.jpg" alt="Unsplashed background img 1" style="display: block; transform: translate3d(-50%, 202px, 0px);"></div> -->
-        </div>
-      </section>
-      <section>
-        <!-- scroll profiles -->
-        <div class="carousel">
-          <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1"></a>
-          <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2"></a>
-          <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
-          <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
-          <a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
-        </div>
-      </section>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="password" type="text" class="validate">
+                <label for="password">password</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input class="btn" type="submit" name="submit" value="login">
+              </div>
+            </div>
+          </form>
+        </section>
+        <section id="skills" class="col m4 s12">
+          <h2>Skills</h2>
+          <ul>
+            <li>
+              <div class="chip">
+                <i class="material-icons">code</i>
+                Skill Name
+              </div>
+            </li>
+            <li>
+              <div class="chip">
+                <i class="material-icons">code</i>
+                Skill Name
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+
       <aside class="">
         <!-- slide out bar - use side nav -->
       </aside>

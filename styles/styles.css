@@ -17,6 +17,16 @@ main {
 }
 
 #brain {
-  height: 10vh;
+  height: 8vh;
   vertical-align: bottom;
+}
+
+.material-icons {
+  vertical-align: bottom;
+  padding-bottom: 0.5vh;
+}
+
+#skills {
+  max-height: 50vh;
+  overflow: scroll;
 }
