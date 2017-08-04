@@ -8,13 +8,18 @@ main {
   flex: 1 0 auto;
 }
 
-a.brand-logo, nav li a, i.material-icons {
-  color: black;
+a.brand-logo, nav li a, i.material-icons, main h2 {
+  color:  rgb(82, 182, 161);
 }
 
+/*.btn:hover {
+  background-color: rgb(97, 125, 141);
+}*/
+
 #brain {
-  max-height: 1em;
-  vertical-align: center;
+  max-height: 1.5em;
+  vertical-align: bottom;
+  margin: 0;
 }
 
 .material-icons {
@@ -25,4 +30,9 @@ a.brand-logo, nav li a, i.material-icons {
 #skills {
   max-height: 50vh;
   overflow: scroll;
+}
+
+.page-footer, .btn {
+  background-color: rgb(82, 182, 161);
+  /*background-color: rgb(97, 125, 141);*/
 }
