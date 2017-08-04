@@ -1,0 +1,22 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+#logo-container, nav li a {
+  color: black;
+}
+
+#index-banner {
+  /*background: linear-gradient(white, blue);*/
+}
+
+#brain {
+  height: 10vh;
+  vertical-align: bottom;
+}
