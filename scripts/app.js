@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('.carousel').carousel();
+  $(".button-collapse").sideNav();
   $('.chips').material_chip();
 
 });

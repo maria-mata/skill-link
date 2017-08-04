@@ -8,17 +8,13 @@ main {
   flex: 1 0 auto;
 }
 
-#logo-container, nav li a {
+a.brand-logo, nav li a, i.material-icons {
   color: black;
 }
 
-#index-banner {
-  /*background: linear-gradient(white, blue);*/
-}
-
 #brain {
-  height: 8vh;
-  vertical-align: bottom;
+  max-height: 1em;
+  vertical-align: center;
 }
 
 .material-icons {
