@@ -28,7 +28,7 @@ a.brand-logo, nav li a, i.material-icons, main h2 {
 }
 
 #skills {
-  max-height: 50vh;
+  height: 60.5vh;
   overflow: scroll;
 }
 
