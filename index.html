@@ -12,32 +12,27 @@
     <header>
       <nav class="white" role="navigation">
         <div class="nav-wrapper container">
-          <a id="logo-container" href="#" class="brand-logo"><img id="brain" src="./Brain-Icon.png" alt="">SkillShare</a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="#"><i class="material-icons">info_outline</i></a></li>
-          </ul>
-          <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
-            <li><a href="#">Navbar Link</a></li>
-          </ul>
-          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+          <a href="./index.html" class="brand-logo"><img id="brain" src="./Brain-Icon.png" alt="">SkillShare</a>
         </div>
       </nav>
     </header>
     <main class="container">
       <div class="row">
-        <section class="col m8 s12">
+        <section class="col m6 s12 card center-align">
           <h2>Log In</h2>
           <form>
             <div class="row">
+              <span class="col s3"></span>
               <div class="input-field col s6">
                 <input id="username" type="text" class="validate">
-                <label for="username">username</label>
+                <label for="username">Username</label>
               </div>
             </div>
             <div class="row">
+              <span class="col s3"></span>
               <div class="input-field col s6">
                 <input id="password" type="text" class="validate">
-                <label for="password">password</label>
+                <label for="password">Password</label>
               </div>
             </div>
             <div class="row">
@@ -47,35 +42,21 @@
             </div>
           </form>
         </section>
-        <section id="skills" class="col m4 s12">
+        <section id="skills" class="col m6 s12 card center-align">
           <h2>Skills</h2>
-          <ul>
-            <li>
-              <div class="chip">
-                <i class="material-icons">code</i>
-                Skill Name
-              </div>
-            </li>
-            <li>
-              <div class="chip">
-                <i class="material-icons">code</i>
-                Skill Name
-              </div>
-            </li>
+          <ul id="skillsList">
           </ul>
         </section>
       </div>
-
-      <aside class="">
-        <!-- slide out bar - use side nav -->
-      </aside>
     </main>
     <footer class="page-footer">
       <div class="container">
         <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">SkillShare</h5>
-            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+          <div class="col l8 s12">
+            <h5 class="white-text">About</h5>
+            <p class="grey-text text-lighten-4">Connect with people that
+              you can learn from and who want to learn from you. Share your
+              knowledge while simultaneously learning new skills.</p>
           </div>
         </div>
       </div>
