@@ -54,22 +54,23 @@
             </li>
           </ul>
         </section>
-        <aside>
+        <aside id="profile">
           <div class="col m4 s12">
             <div class="card">
               <div class="card-image">
                 <img src="http://www.cdn.innesvienna.net//Content/user-default.png">
-                <span class="card-title">Logan Crewss</span>
+                <span class="card-title"></span>
               </div>
               <div class="card-action">
                 <a class="modal-trigger" href="#edit-profile">Edit Profile</a>
               </div>
             </div>
           </div>
+        </aside>
           <div id="edit-profile" class="modal">
             <div class="modal-content">
               <h4 class="center">Edit Profile</h4>
-              <form class="col s12">
+              <form id="user-put" class="col s12">
                 <div class="row">
                   <div class="input-field col s12">
                     <input id="name" type="text" class="validate">
@@ -102,12 +103,11 @@
                   </div>
                 </div>
                 <div class="row">
-                  <input class="btn" type="submit" value="Save">
+                  <input class="btn modal-close" type="submit" value="Save">
                 </div>
               </form>
             </div>
           </div>
-        </aside>
       </div>
     </main>
     <footer class="page-footer">
