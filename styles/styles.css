@@ -8,7 +8,7 @@ main {
   flex: 1 0 auto;
 }
 
-a.brand-logo, nav li a, i.material-icons, main h2 {
+a.brand-logo, nav li a, #skillsList i.material-icons, main h2 {
   color:  rgb(82, 182, 161);
 }
 
