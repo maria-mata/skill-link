@@ -8,28 +8,34 @@ main {
   flex: 1 0 auto;
 }
 
-a.brand-logo, nav li a, i.material-icons, main h2 {
-  color:  rgb(82, 182, 161);
-}
-
-/*.btn:hover {
-  background-color: rgb(97, 125, 141);
-}*/
-
 #brain {
   max-height: 1.5em;
   vertical-align: bottom;
   margin: 0;
 }
 
-.material-icons {
-  vertical-align: bottom;
-  padding-bottom: 0.5vh;
-}
-
 #skills {
   max-height: 50vh;
   overflow: scroll;
+}
+
+.logout{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.logoutIcon {
+  height: 2%;
+  width: 2%;
+}
+
+.matches {
+  height: 50vh;
+  width: 20vh;
+}
+
+.profileImage {
+  height: 20vh;
 }
 
 .page-footer, .btn {
