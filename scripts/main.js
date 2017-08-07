@@ -1,21 +1,24 @@
 var userId = 1 // The user ID of the person logged in
 const decodedToken = parseJWT(localStorage.getItem('token'))
+const baseURL = 'https://young-peak-51032.herokuapp.com/'
+// const baseURL = 'http://localhost:8080/'
+
 
 $(document).ready(function() {
 	$('.button-collapse').sideNav()
 	$('.modal').modal()
-	// $('.logOut').click(logOut)
+	$('.logOut').click(logOut)
 
-	$.get(`https://young-peak-51032.herokuapp.com/users/${userId}`)
+	$.get(`${baseURL}users/${userId}`)
 		.then(showUserProfile)
 
-	$.get('https://young-peak-51032.herokuapp.com/skills')
+	$.get(`${baseURL}skills`)
 		.then(showAllSkills)
 
-	$.get(`https://young-peak-51032.herokuapp.com/users/skills/${userId}`)
+	$.get(`${baseURL}users/skills/${userId}`)
 		.then(showSkillsHave)
 
-	$.get(`https://young-peak-51032.herokuapp.com/users/matches/${userId}`)
+	$.get(`${baseURL}users/matches/${userId}`)
 		.then(appendSkillMatches)
 
 	$('#user-put').submit(updateProfile)
@@ -114,8 +117,7 @@ function showMatchProfile(match) { // THIS WORKS
         <p><b>Phone:</b>  ${match.phone}</p>
         <p><b>Can Teach You:</b>  </p>
         <p><b>Wants to Learn:</b>  </p>`
-	$('#match-modal > div.modal-content').append(content) >>>
-		>>> > master
+	$('#match-modal > div.modal-content').append(content)
 }
 
 function parseJWT(token) {
