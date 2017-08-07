@@ -81,8 +81,13 @@ function updateProfile(event) { // THIS WORKS
 	})
 };
 
-function updateSkills(event) { // THIS WORKS
+function updateSkills(event) {
 	event.preventDefault()
+	updateSkillLearn()
+	// updateSkillsHave()
+}
+
+function updateSkillLearn() { // THIS WORKS
 	let id = $("input[type='radio']:checked").val()
 	let skill = `<p class="want">${$("input[type='radio']:checked").attr('id')}</p>`
 	$.ajax({
@@ -98,6 +103,10 @@ function updateSkills(event) { // THIS WORKS
 				.then(appendSkillMatches)
 		}
 	})
+}
+
+function updateSkillsHave() {
+	
 }
 
 function showSkillWant(data) { // THIS WORKS
