@@ -1,5 +1,5 @@
 var userId = 1 // The user ID of the person logged in
-const decodedToken = parseJWT(localStorage.getItem('token'))
+// const decodedToken = parseJWT(localStorage.getItem('token'))
 const baseURL = 'https://young-peak-51032.herokuapp.com/'
 // const baseURL = 'http://localhost:8080/'
 
@@ -95,8 +95,8 @@ function appendSkillMatches(data) { // THIS WORKS
                   <img src="http://www.cdn.innesvienna.net//Content/user-default.png"
                   alt="${data[i].name}" class="circle">
                   <span class="title"><b>${data[i].name}</b></span>
-                  <p>Can Teach You: <br>
-                     Wants to Learn:
+                  <p>Can Teach You: ${listOfSkills(data[i].skills)}<br>
+                     Wants to Learn: ${data[i].skill_learn}
                      <a id="${data[i].id}" href="#match-modal"
                      class="secondary-content modal-trigger">
                      <i class="material-icons">remove_red_eye</i></a>
@@ -115,9 +115,16 @@ function showMatchProfile(match) { // THIS WORKS
         <p><b>Bio:</b>  ${match.bio}</p>
         <p><b>Email:</b>  ${match.email}</p>
         <p><b>Phone:</b>  ${match.phone}</p>
-        <p><b>Can Teach You:</b>  </p>
-        <p><b>Wants to Learn:</b>  </p>`
+        <p><b>Can Teach You:</b> ${listOfSkills(match.skills)}</p>
+        <p><b>Wants to Learn:</b>  ${match.skill_learn}</p>`
 	$('#match-modal > div.modal-content').append(content)
+}
+
+function listOfSkills(array) {
+  let output = array.map((el) => {
+    return el.name
+  }, [])
+  return output.join(', ')
 }
 
 function parseJWT(token) {
