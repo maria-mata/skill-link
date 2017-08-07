@@ -1,5 +1,5 @@
-// const baseURL = 'https://young-peak-51032.herokuapp.com/skills'
-const baseURL = 'http://localhost:8080/'
+const baseURL = 'https://young-peak-51032.herokuapp.com/'
+// const baseURL = 'http://localhost:8080/'
 
 $(document).ready(function() {
 	authorizeUser()
@@ -31,7 +31,7 @@ function logIn(event) {
 		username,
 		password
 	}
-	$.post(`http://localhost:8080/auth/login`, data)
+	$.post(`${baseURL}auth/login`, data)
 		.then(res => {
 			if (res.error) {
 				alert(res.error)
