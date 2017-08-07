@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	authorizeUser()
 	$('.chips').material_chip()
 	$('.button-collapse').sideNav()
 	$('form.login').submit(logIn)
@@ -39,15 +40,15 @@ function logIn(event) {
 			if (res.error) {
 				alert(res.error)
 			} else {
-				// let token = parseJWT(res.data)
 				localStorage.setItem('token', res.data)
 				location.href = '/main.html'
 			}
 		})
 }
 
-function parseJWT(token) {
-	var base64Url = token.split('.')[1];
-	var base64 = base64Url.replace('-', '+').replace('_', '/');
-	return JSON.parse(window.atob(base64));
-};
+function authorizeUser() {
+	let token = localStorage.getItem('token')
+	if (token) {
+		location.href = '/main.html'
+	}
+}

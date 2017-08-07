@@ -1,10 +1,15 @@
 const userId = 1
 const userURL = 'https://young-peak-51032.herokuapp.com/users/'
+const decodedToken = parseJWT(localStorage.getItem('token'))
+console.log(decodedToken);
 
 $(document).ready(function() {
+
 	$('.button-collapse').sideNav()
 	$('.modal').modal();
-	$('.logOut').click(signOut)
+	$('.logOut').click(logOut)
+
+
 
 	$.get(userURL + userId)
 		.then(showUserProfile)
@@ -40,6 +45,12 @@ function userPutRequest(event) {
 		}
 	});
 }
+
+function parseJWT(token) {
+	let base64Url = token.split('.')[1];
+	let base64 = base64Url.replace('-', '+').replace('_', '/');
+	return JSON.parse(window.atob(base64));
+};
 
 function logOut(event) {
 	event.preventDefault()
