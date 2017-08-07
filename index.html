@@ -20,24 +20,24 @@
       <div class="row">
         <section class="col m6 s12 card center-align">
           <h2>Log In</h2>
-          <form>
+          <form class="form login">
             <div class="row">
               <span class="col s3"></span>
               <div class="input-field col s6">
-                <input id="username" type="text" class="validate">
+                <input id="username" name="login-username" type="text" class="validate">
                 <label for="username">Username</label>
               </div>
             </div>
             <div class="row">
               <span class="col s3"></span>
               <div class="input-field col s6">
-                <input id="password" type="text" class="validate">
+                <input id="password" name="login-password" type="text" class="validate">
                 <label for="password">Password</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input class="btn" type="submit" name="submit" value="login">
+                <input class="btn loginBtn" type="submit" name="submit" value="login">
               </div>
             </div>
           </form>
