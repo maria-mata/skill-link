@@ -1,10 +1,5 @@
 var userId = 1 // The user ID of the person logged in
-<<<<<<< HEAD
-const decodedToken = parseJWT(localStorage.getItem('token'))
-console.log(decodedToken.id);
-=======
 // const decodedToken = parseJWT(localStorage.getItem('token'))
->>>>>>> 0333ab344400e9f149e0e6b74c75240723340bfc
 const baseURL = 'https://young-peak-51032.herokuapp.com/'
 // const baseURL = 'http://localhost:8080/'
 var skillsHave = []
@@ -18,7 +13,7 @@ $(document).ready(function() {
 		.then(showUserProfile)
 
 	$.get(`${baseURL}users/skills/${userId}`)
-	.then(showSkillsHave)
+		.then(showSkillsHave)
 
 	$.get(`${baseURL}skills`)
 		.then(showAllSkills)
@@ -71,6 +66,7 @@ function showAllSkills(data) { // THIS WORKS
 
 function updateProfile(event) { // THIS WORKS
 	event.preventDefault()
+	updateImage()
 	$.ajax({
 		url: `https://young-peak-51032.herokuapp.com/users/${userId}`,
 		type: 'PUT',
@@ -124,10 +120,10 @@ function showMatchProfile(match) { // THIS WORKS
 }
 
 function listOfSkills(array) { // THIS WORKS
-  let output = array.map((el) => {
-    return el.name
-  }, [])
-  return output.join(', ')
+	let output = array.map((el) => {
+		return el.name
+	}, [])
+	return output.join(', ')
 }
 
 function parseJWT(token) { // THIS WORKS
@@ -140,4 +136,23 @@ function logOut(event) { // THIS WORKS
 	event.preventDefault()
 	localStorage.removeItem('token')
 	location.href = '/'
+}
+
+function updateImage() {
+	let img = $('input[type=file]').prop('files')[0]
+	let formData = new formData()
+	formData.append('photo', img)
+	$.ajax({
+		url: `${baseURL}image`,
+		data: formData,
+		processData: false,
+		contentType: false,
+		type: 'POST',
+		success: data => {
+			displayImage()
+		},
+		fail: error => {
+			console.log(error);
+		}
+	})
 }
