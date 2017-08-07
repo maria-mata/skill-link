@@ -1,5 +1,5 @@
-var userId = 1 // The user ID of the person logged in
 // const decodedToken = parseJWT(localStorage.getItem('token'))
+var userId = 1 // The user ID of the person logged in
 const baseURL = 'https://young-peak-51032.herokuapp.com/'
 // const baseURL = 'http://localhost:8080/'
 
@@ -105,9 +105,27 @@ function updateSkillLearn() { // THIS WORKS
 	})
 }
 
-function updateSkillsHave() {
-	
-}
+// function updateSkillsHave() {
+// 	let id = $("input[type='checkbox']:checked").val() // array of values
+// 	let data =
+// 	$.post(`${baseURL}users/skills/${userId}`, function(data) {
+//
+// 	})
+//
+// 	$.ajax({
+// 		url:
+// 		type: 'POST',
+// 		data: {
+// 			skill_learn: id
+// 		},
+// 		success: function() {
+// 			$('p.want').remove()
+// 			$('#skills-want').append(skill)
+// 			$.get(`${baseURL}users/matches/${userId}`)
+// 				.then(appendSkillMatches)
+// 		}
+// 	})
+// }
 
 function showSkillWant(data) { // THIS WORKS
 	let skill = `<p class="want">${data[0].skills_name}</p>`
