@@ -12,8 +12,8 @@ $(document).ready(function() {
 	$.get(`${baseURL}users/${userId}`)
 		.then(showUserProfile)
 
-	$.get(`${baseURL}skills`)
-		.then(showAllSkills)
+	// $.get(`${baseURL}skills`)
+	// 	.then(showAllSkills)
 
 	$.get(`${baseURL}users/skills/${userId}`)
 		.then(showSkillsHave)
@@ -36,25 +36,23 @@ function showUserProfile(data) { // THIS WORKS
 	Materialize.updateTextFields()
 };
 
-function showAllSkills(data) { // THIS WORKS
-	for (let i = 0; i < data.length; i++) {
-		let skill = `<p>
-      <input class="skill" type="checkbox" id="${data[i].id}"/>
-      <label for="test5">${data[i].name}</label>
-    </p>`
-		$('#skills-have').append(skill)
-	}
-}
+// function showAllSkills(data) { // THIS WORKS
+// 	for (let i = 0; i < data.length; i++) {
+// 		let skill = `<p>
+//       <input class="skill" type="checkbox" id="${data[i].id}"/>
+//       <label for="test5">${data[i].name}</label>
+//     </p>`
+// 		$('#skills-have').append(skill)
+// 	}
+// }
 
 function showSkillsHave(data) {
-	let skills = $('#skills-have.skill')
 	for (let i = 0; i < data.length; i++) {
-		let have = skills.find((el) => {
-			return $(el).attr('id') == data[i].skills_id
-		})
-		if (have !== undefined) {
-			$(have).attr('checked', 'checked')
-		}
+		let skill = `<p>
+      <input class="skill" type="checkbox" checked="checked" name="${data[i].id}"/>
+      <label for="${data[i].id}">${data[i].name}</label>
+    </p>`
+    $('#skills-have').append(skill)
 	}
 }
 
@@ -77,13 +75,13 @@ function updateProfile(event) { // THIS WORKS
 };
 
 // returns the name of the skill when passed the skill id
-function skillWant(data) {
-	return data.filter((el) => {
-		return el.id == skillId
-	}, []).filter((el) => {
-		return el.name
-	}, [])
-};
+// function skillWant(data) {
+// 	return data.filter((el) => {
+// 		return el.id == skillId
+// 	}, []).filter((el) => {
+// 		return el.name
+// 	}, [])
+// };
 
 function updateSkills(event) {
 	// put request to change skills they have and skill they want
@@ -96,7 +94,7 @@ function appendSkillMatches(data) { // THIS WORKS
                   alt="${data[i].name}" class="circle">
                   <span class="title"><b>${data[i].name}</b></span>
                   <p>Can Teach You: ${listOfSkills(data[i].skills)}<br>
-                     Wants to Learn: ${data[i].skill_learn}
+                     Wants to Learn: ${data[i].skills_name}
                      <a id="${data[i].id}" href="#match-modal"
                      class="secondary-content modal-trigger">
                      <i class="material-icons">remove_red_eye</i></a>
@@ -116,7 +114,7 @@ function showMatchProfile(match) { // THIS WORKS
         <p><b>Email:</b>  ${match.email}</p>
         <p><b>Phone:</b>  ${match.phone}</p>
         <p><b>Can Teach You:</b> ${listOfSkills(match.skills)}</p>
-        <p><b>Wants to Learn:</b>  ${match.skill_learn}</p>`
+        <p><b>Wants to Learn:</b>  ${match.skills_name}</p>`
 	$('#match-modal > div.modal-content').append(content)
 }
 
