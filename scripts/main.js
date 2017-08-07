@@ -2,7 +2,7 @@ var userId = 1 // The user ID of the person logged in
 // const decodedToken = parseJWT(localStorage.getItem('token'))
 const baseURL = 'https://young-peak-51032.herokuapp.com/'
 // const baseURL = 'http://localhost:8080/'
-
+var skillsHave = []
 
 $(document).ready(function() {
 	$('.button-collapse').sideNav()
@@ -12,11 +12,14 @@ $(document).ready(function() {
 	$.get(`${baseURL}users/${userId}`)
 		.then(showUserProfile)
 
-	// $.get(`${baseURL}skills`)
-	// 	.then(showAllSkills)
-
 	$.get(`${baseURL}users/skills/${userId}`)
-		.then(showSkillsHave)
+	.then(showSkillsHave)
+
+	$.get(`${baseURL}skills`)
+		.then(showAllSkills)
+
+	$.get(`${baseURL}users/${userId}`)
+		.then(showSkillWant) // ***
 
 	$.get(`${baseURL}users/matches/${userId}`)
 		.then(appendSkillMatches)
@@ -36,25 +39,30 @@ function showUserProfile(data) { // THIS WORKS
 	Materialize.updateTextFields()
 };
 
-// function showAllSkills(data) { // THIS WORKS
-// 	for (let i = 0; i < data.length; i++) {
-// 		let skill = `<p>
-//       <input class="skill" type="checkbox" id="${data[i].id}"/>
-//       <label for="test5">${data[i].name}</label>
-//     </p>`
-// 		$('#skills-have').append(skill)
-// 	}
-// }
-
-function showSkillsHave(data) {
+function showSkillsHave(data) { // THIS WORKS
 	for (let i = 0; i < data.length; i++) {
 		let skill = `<p>
-      <input class="skill" type="checkbox" checked="checked" name="${data[i].id}"/>
-      <label for="${data[i].id}">${data[i].name}</label>
-    </p>`
-    $('#skills-have').append(skill)
+		<input class="skill" type="checkbox" checked="checked" id="${data[i].id}-have"/>
+		<label for="${data[i].id}-have">${data[i].name}</label>
+		</p>`
+		$('#skills-have').append(skill)
 	}
-}
+};
+
+function showAllSkills(data) { // THIS WORKS
+	for (let i = 0; i < data.length; i++) {
+		let skillChange = `<p>
+      <input name="group1" type="radio" id="${data[i].id}-change" />
+      <label for="${data[i].id}-change">${data[i].name}</label>
+    </p>`
+		let skillAdd = `<p>
+		<input class="skill" type="checkbox" id="${data[i].id}-add"/>
+		<label for="${data[i].id}-add">${data[i].name}</label>
+		</p>`
+		$('#change-learn').append(skillChange)
+		$('#add-skills').append(skillAdd)
+	}
+};
 
 function updateProfile(event) { // THIS WORKS
 	event.preventDefault()
@@ -74,18 +82,10 @@ function updateProfile(event) { // THIS WORKS
 	})
 };
 
-// returns the name of the skill when passed the skill id
-// function skillWant(data) {
-// 	return data.filter((el) => {
-// 		return el.id == skillId
-// 	}, []).filter((el) => {
-// 		return el.name
-// 	}, [])
-// };
-
-function updateSkills(event) {
-	// put request to change skills they have and skill they want
-}
+function showSkillWant(data) { // THIS WORKS
+	let skill = `<p>${data[0].skills_name}</p>`
+	$('#skills-want').append(skill)
+};
 
 function appendSkillMatches(data) { // THIS WORKS
 	for (let i = 0; i < data.length; i++) {
@@ -118,20 +118,20 @@ function showMatchProfile(match) { // THIS WORKS
 	$('#match-modal > div.modal-content').append(content)
 }
 
-function listOfSkills(array) {
+function listOfSkills(array) { // THIS WORKS
   let output = array.map((el) => {
     return el.name
   }, [])
   return output.join(', ')
 }
 
-function parseJWT(token) {
+function parseJWT(token) { // THIS WORKS
 	let base64Url = token.split('.')[1];
 	let base64 = base64Url.replace('-', '+').replace('_', '/');
 	return JSON.parse(window.atob(base64));
 };
 
-function logOut(event) {
+function logOut(event) { // THIS WORKS
 	event.preventDefault()
 	localStorage.removeItem('token')
 	location.href = '/'
