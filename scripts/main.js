@@ -1,7 +1,7 @@
 var userId = 1 // The user ID of the person logged in
 // const decodedToken = parseJWT(localStorage.getItem('token'))
-const baseURL = 'https://young-peak-51032.herokuapp.com/'
-// const baseURL = 'http://localhost:8080/'
+// const baseURL = 'https://young-peak-51032.herokuapp.com/'
+const baseURL = 'http://localhost:8080/'
 var skillsHave = []
 
 $(document).ready(function() {
@@ -143,7 +143,7 @@ function updateImage() {
 	let formData = new FormData()
 	formData.append('image', img)
 	$.ajax({
-		url: `${baseURL}image/${userId}`,
+		url: `${baseURL}image/image/${userId}`,
 		data: formData,
 		processData: false,
 		contentType: false,
