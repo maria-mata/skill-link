@@ -1,11 +1,17 @@
-var userId = 1 // this will change based on authentication
+var userId = 1 // The user ID of the person logged in
 
 $(document).ready(function() {
   $('.button-collapse').sideNav()
   $('.modal').modal()
 
   $.get(`https://young-peak-51032.herokuapp.com/users/${userId}`)
-    .then(showUserProfile)
+  .then(showUserProfile)
+
+  $.get('https://young-peak-51032.herokuapp.com/skills')
+  .then(showAllSkills)
+
+  $.get(`https://young-peak-51032.herokuapp.com/users/skills/${userId}`)
+  .then(showSkillsHave)
 
   $.get(`https://young-peak-51032.herokuapp.com/users/matches/${userId}`)
     .then(appendSkillMatches)
@@ -22,8 +28,31 @@ function showUserProfile(data) {
   $('#email').val(data[0].email)
   $('#phone').val(data[0].phone)
   $('#bio').val(data[0].bio)
-  Materialize.updateTextFields() // ensure labels don't screw up content
+  Materialize.updateTextFields()
 };
+
+function showAllSkills(data) {
+  for (let i = 0; i < data.length; i++) {
+    let skill = `<p>
+      <input class="skill" type="checkbox" id="${data[i].id}"/>
+      <label for="test5">${data[i].name}</label>
+    </p>`
+  $('#skills-have').append(skill)
+  }
+}
+
+
+function showSkillsHave(data) {
+  let skills = $('#skills-have.skill')
+  for (let i = 0; i < data.length; i++) {
+    let have = skills.find((el) => {
+      return $(el).attr('id') == data[i].skills_id
+    })
+    if (have !== undefined) {
+      $(have).attr('checked', 'checked')
+    }
+  }
+}
 
 function updateProfile(event) {
   event.preventDefault()
@@ -31,7 +60,7 @@ function updateProfile(event) {
     url: `https://young-peak-51032.herokuapp.com/users/${userId}`,
     type: 'PUT',
     data: {
-      // add photo later
+      // missing photo part
       name: $('#name').val(),
       email: $('#email').val(),
       phone: $('#phone').val(),
@@ -43,19 +72,8 @@ function updateProfile(event) {
   })
 };
 
-// returns an array of skills that a user has
-function skillsHave(userId) {
-  let output = []
-  $.get(`https://young-peak-51032.herokuapp.com/users/skills/${userId}`)
-    .then(function(data) {
-      for (let i = 0; i < data.length; i++) {
-        output.push(data[i].name)
-      }
-    })
-}
-
 // returns the name of the skill when passed the skill id
-function skillWant(skillId) {
+function skillWant(data) {
   $.get('https://young-peak-51032.herokuapp.com/skills')
     .then(function(data) {
       return data.filter((el) => {
@@ -64,14 +82,11 @@ function skillWant(skillId) {
         return el.name
       }, [])
     })
-}
+};
 
 function updateSkills(event) {
-  // get skills they have => users/skills AND /skills - many to many
-  // get skills they want => users/:id AND /skills - one to many
+  // put request to change skills they have and skill they want
 }
-
-
 
 function appendSkillMatches(data) {
   for (let i = 0; i < data.length; i++) {
@@ -96,8 +111,10 @@ function appendSkillMatches(data) {
 function showMatchProfile(match) {
   $('#match-modal > div.modal-content').empty()
   let content = `<h4>${match.name}</h4>
-    <ul>
-      <li></li>
-    </ul>`
+        <p><b>Bio:</b>  ${match.bio}</p>
+        <p><b>Email:</b>  ${match.email}</p>
+        <p><b>Phone:</b>  ${match.phone}</p>
+        <p><b>Can Teach You:</b>  </p>
+        <p><b>Wants to Learn:</b>  </p>`
   $('#match-modal > div.modal-content').append(content)
 }
