@@ -140,10 +140,10 @@ function logOut(event) { // THIS WORKS
 
 function updateImage() {
 	let img = $('input[type=file]').prop('files')[0]
-	let formData = new formData()
-	formData.append('photo', img)
+	let formData = new FormData()
+	formData.append('image', img)
 	$.ajax({
-		url: `${baseURL}image`,
+		url: `${baseURL}image/${userId}`,
 		data: formData,
 		processData: false,
 		contentType: false,
