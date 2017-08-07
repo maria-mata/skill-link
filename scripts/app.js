@@ -1,18 +1,15 @@
+// const baseURL = 'https://young-peak-51032.herokuapp.com/skills'
+const baseURL = 'http://localhost:8080/'
+
 $(document).ready(function() {
 	authorizeUser()
 	$('.chips').material_chip()
 	$('.button-collapse').sideNav()
 	$('form.login').submit(logIn)
 
-	// const baseURL = 'https://young-peak-51032.herokuapp.com/'
-	const baseURL = 'http://localhost:8080/'
-
-	$.get(baseURL + 'skills')
+	$.get(baseURL)
 		.then(appendSkills)
 
-	$('.info').click(function() {
-		$('#slide-out').toggle()
-	})
 });
 
 function appendSkills(data) {
@@ -22,8 +19,7 @@ function appendSkills(data) {
                     <i class="material-icons">code</i> ${data[i].name}
                   </div>
                 </li>`
-
-		$('#skillsList').append(skill)
+		$('#skills-list').append(skill)
 	}
 };
 
