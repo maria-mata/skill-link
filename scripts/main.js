@@ -21,7 +21,7 @@ $(document).ready(function() {
 
 });
 
-function showUserProfile(data) {
+function showUserProfile(data) { // THIS WORKS
   // missing photo display
   $('.card-title').text(data[0].name)
   $('#name').val(data[0].name)
@@ -31,7 +31,7 @@ function showUserProfile(data) {
   Materialize.updateTextFields()
 };
 
-function showAllSkills(data) {
+function showAllSkills(data) { // THIS WORKS
   for (let i = 0; i < data.length; i++) {
     let skill = `<p>
       <input class="skill" type="checkbox" id="${data[i].id}"/>
@@ -40,7 +40,6 @@ function showAllSkills(data) {
   $('#skills-have').append(skill)
   }
 }
-
 
 function showSkillsHave(data) {
   let skills = $('#skills-have.skill')
@@ -54,7 +53,7 @@ function showSkillsHave(data) {
   }
 }
 
-function updateProfile(event) {
+function updateProfile(event) { // THIS WORKS
   event.preventDefault()
   $.ajax({
     url: `https://young-peak-51032.herokuapp.com/users/${userId}`,
@@ -74,21 +73,18 @@ function updateProfile(event) {
 
 // returns the name of the skill when passed the skill id
 function skillWant(data) {
-  $.get('https://young-peak-51032.herokuapp.com/skills')
-    .then(function(data) {
-      return data.filter((el) => {
-        return el.id == skillId
-      }, []).filter((el) => {
-        return el.name
-      }, [])
-    })
+  return data.filter((el) => {
+    return el.id == skillId
+  }, []).filter((el) => {
+    return el.name
+  }, [])
 };
 
 function updateSkills(event) {
   // put request to change skills they have and skill they want
 }
 
-function appendSkillMatches(data) {
+function appendSkillMatches(data) { // THIS WORKS
   for (let i = 0; i < data.length; i++) {
     let match = `<li class="collection-item avatar">
                   <img src="http://www.cdn.innesvienna.net//Content/user-default.png"
@@ -108,7 +104,7 @@ function appendSkillMatches(data) {
   }
 };
 
-function showMatchProfile(match) {
+function showMatchProfile(match) { // THIS WORKS
   $('#match-modal > div.modal-content').empty()
   let content = `<h4>${match.name}</h4>
         <p><b>Bio:</b>  ${match.bio}</p>
