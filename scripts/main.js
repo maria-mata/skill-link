@@ -2,7 +2,6 @@ var userId = 1 // The user ID of the person logged in
 // const decodedToken = parseJWT(localStorage.getItem('token'))
 const baseURL = 'https://young-peak-51032.herokuapp.com/'
 // const baseURL = 'http://localhost:8080/'
-var skillsHave = []
 
 $(document).ready(function() {
 	$('.button-collapse').sideNav()
@@ -25,7 +24,7 @@ $(document).ready(function() {
 		.then(appendSkillMatches)
 
 	$('#user-put').submit(updateProfile)
-	// $('#skills-put').submit(updateSkills)
+	$('#skills-put').submit(updateSkills)
 
 });
 
@@ -52,11 +51,11 @@ function showSkillsHave(data) { // THIS WORKS
 function showAllSkills(data) { // THIS WORKS
 	for (let i = 0; i < data.length; i++) {
 		let skillChange = `<p>
-      <input name="group1" type="radio" id="${data[i].id}-change" />
-      <label for="${data[i].id}-change">${data[i].name}</label>
+      <input name="group1" type="radio" id="${data[i].name}" value=${data[i].id}>
+      <label for="${data[i].name}">${data[i].name}</label>
     </p>`
 		let skillAdd = `<p>
-		<input class="skill" type="checkbox" id="${data[i].id}-add"/>
+		<input class="skill" type="checkbox" id="${data[i].id}-add" value=${data[i].id}>
 		<label for="${data[i].id}-add">${data[i].name}</label>
 		</p>`
 		$('#change-learn').append(skillChange)
@@ -67,7 +66,7 @@ function showAllSkills(data) { // THIS WORKS
 function updateProfile(event) { // THIS WORKS
 	event.preventDefault()
 	$.ajax({
-		url: `https://young-peak-51032.herokuapp.com/users/${userId}`,
+		url: `${baseURL}users/${userId}`,
 		type: 'PUT',
 		data: {
 			// missing photo part
@@ -82,8 +81,25 @@ function updateProfile(event) { // THIS WORKS
 	})
 };
 
+function updateSkills(event) {
+	event.preventDefault()
+	let id = $("input[type='radio']:checked").val()
+	let skill = `<p class="want">${$("input[type='radio']:checked").attr('id')}</p>`
+	$.ajax({
+		url: `${baseURL}users/${userId}`,
+		type: 'PUT',
+		data: {
+			skill_learn: id
+		},
+		success: function() {
+			$('p.want').remove()
+			$('#skills-want').append(skill)
+		}
+	})
+}
+
 function showSkillWant(data) { // THIS WORKS
-	let skill = `<p>${data[0].skills_name}</p>`
+	let skill = `<p class="want">${data[0].skills_name}</p>`
 	$('#skills-want').append(skill)
 };
 
