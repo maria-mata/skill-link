@@ -7,7 +7,7 @@ $(document).ready(function() {
 	$('.button-collapse').sideNav()
 	$('form.login').submit(logIn)
 
-	$.get(baseURL + 'skills')
+	$.get(`${baseURL}skills`)
 		.then(appendSkills)
 
 });
