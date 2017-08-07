@@ -156,3 +156,7 @@ function updateImage() {
 		}
 	})
 }
+
+function displayImage() {
+	console.log('HAY');
+}
