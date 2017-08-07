@@ -81,7 +81,7 @@ function updateProfile(event) { // THIS WORKS
 	})
 };
 
-function updateSkills(event) {
+function updateSkills(event) { // THIS WORKS
 	event.preventDefault()
 	let id = $("input[type='radio']:checked").val()
 	let skill = `<p class="want">${$("input[type='radio']:checked").attr('id')}</p>`
@@ -94,6 +94,8 @@ function updateSkills(event) {
 		success: function() {
 			$('p.want').remove()
 			$('#skills-want').append(skill)
+			$.get(`${baseURL}users/matches/${userId}`)
+				.then(appendSkillMatches)
 		}
 	})
 }
@@ -104,6 +106,7 @@ function showSkillWant(data) { // THIS WORKS
 };
 
 function appendSkillMatches(data) { // THIS WORKS
+	$('#matches li.collection-item').remove()
 	for (let i = 0; i < data.length; i++) {
 		let match = `<li class="collection-item avatar">
                   <img src="http://www.cdn.innesvienna.net//Content/user-default.png"
