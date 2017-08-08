@@ -1,5 +1,5 @@
 // const decodedToken = parseJWT(localStorage.getItem('token'))
-var userId = 2 // The user ID of the person logged in
+var userId = 1 // The user ID of the person logged in
 // const baseURL = 'https://young-peak-51032.herokuapp.com/'
 const baseURL = 'http://localhost:8080/'
 
@@ -28,6 +28,9 @@ $(document).ready(function() {
 
 	$.get(`${baseURL}users/connection/request/${userId}`)
 		.then(appendConnectionRequests)
+
+	$.get(`${baseURL}users/connection/connected/${userId}`)
+		.then(appendConnected)
 
 	$('#user-put').submit(updateProfile)
 	$('#skills-put').submit(updateSkills) // **
@@ -64,16 +67,24 @@ function appendSentConnections(data) {
 }
 
 function appendConnectionRequests(data) {
-	$('#Requests > h6').remove()
+	$('#Requests > p').remove()
 	for (let i = 0; i < data.length; i++) {
-		let name = `<h6>${data[i].name}  <a id="${data[i].id}-accept"><span>ACCEPT</span></a>
+		let name = `<p>${data[i].name}  <a id="${data[i].id}-accept"><span>ACCEPT</span></a>
 		  <a id="${data[i].id}-deny"><span>DENY</span></a>
-		</h6>`
+		</p>`
 		$('#Requests').append(name)
 		$(`#${data[i].id}-accept`).click(acceptRequest);
 		$(`#${data[i].id}-deny`).click(denyRequest)
 		}
 	}
+
+function appendConnected(data) {
+	$('#Connected > p').remove()
+	for (let i = 0; i < data.length; i++) {
+		let name = `<p>${data[i].name}</p>`
+		$('#Connected').append(name)
+	}
+}
 
 function acceptRequest(event) {
 	event.preventDefault()
