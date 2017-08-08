@@ -41,6 +41,7 @@ function signup(event) {
 		if (res.error) {
 			alert(res.error)
 		} else {
+			console.log(res);
 			alert('Sign up successful.')
 			// location.href = '/'
 		}
