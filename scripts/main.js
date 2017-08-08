@@ -18,13 +18,13 @@ $(document).ready(function() {
 		.then(showAllSkills)
 
 	$.get(`${baseURL}users/${userId}`)
-		.then(showSkillWant) // ***
+		.then(showSkillWant)
 
 	$.get(`${baseURL}users/matches/${userId}`)
 		.then(appendSkillMatches)
 
 	$('#user-put').submit(updateProfile)
-	$('#skills-put').submit(updateSkills)
+	$('#skills-put').submit(updateSkills) // **
 
 });
 
@@ -55,7 +55,7 @@ function showAllSkills(data) { // THIS WORKS
       <label for="${data[i].name}">${data[i].name}</label>
     </p>`
 		let skillAdd = `<p>
-		<input class="skill" type="checkbox" id="${data[i].id}-add" value=${data[i].id}>
+		<input class="add" type="checkbox" id="${data[i].id}-add" value=${data[i].id}>
 		<label for="${data[i].id}-add">${data[i].name}</label>
 		</p>`
 		$('#change-learn').append(skillChange)
@@ -90,42 +90,36 @@ function updateSkills(event) {
 function updateSkillLearn() { // THIS WORKS
 	let id = $("input[type='radio']:checked").val()
 	let skill = `<p class="want">${$("input[type='radio']:checked").attr('id')}</p>`
-	$.ajax({
-		url: `${baseURL}users/${userId}`,
-		type: 'PUT',
-		data: {
-			skill_learn: id
-		},
-		success: function() {
-			$('p.want').remove()
-			$('#skills-want').append(skill)
-			$.get(`${baseURL}users/matches/${userId}`)
+	if (skill !== undefined) {
+		$.ajax({
+			url: `${baseURL}users/${userId}`,
+			type: 'PUT',
+			data: {
+				skill_learn: id
+			},
+			success: function() {
+				$('p.want').remove()
+				$('#skills-want').append(skill)
+				$.get(`${baseURL}users/matches/${userId}`)
 				.then(appendSkillMatches)
-		}
-	})
+			}
+		})
+	}
 }
 
 // function updateSkillsHave() {
-// 	let id = $("input[type='checkbox']:checked").val() // array of values
-// 	let data =
-// 	$.post(`${baseURL}users/skills/${userId}`, function(data) {
-//
-// 	})
-//
-// 	$.ajax({
-// 		url:
-// 		type: 'POST',
-// 		data: {
-// 			skill_learn: id
-// 		},
-// 		success: function() {
-// 			$('p.want').remove()
-// 			$('#skills-want').append(skill)
-// 			$.get(`${baseURL}users/matches/${userId}`)
-// 				.then(appendSkillMatches)
-// 		}
-// 	})
+// 	let skillsArray = $('input[type="checkbox"]:checked')
+// 	let data = pullIds(skillsArray) // array of values
+// 	$.post(`${baseURL}users/skills/${userId}`, data)
 // }
+
+function pullIds(array) {
+	let output = []
+	for (var i = 0; i < array.length; i++) {
+		output.push({skills_id: $(array[i]).attr('id').charAt(0)})
+	}
+	return output
+};
 
 function showSkillWant(data) { // THIS WORKS
 	let skill = `<p class="want">${data[0].skills_name}</p>`
