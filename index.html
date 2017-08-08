@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>SkillShare</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
-    <link rel="stylesheet" href="./styles/styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  </head>
-  <body>
-    <header>
-      <nav class="white" role="navigation">
-        <div class="nav-wrapper container">
-          <a href="./index.html" class="brand-logo"><img id="brain" src="./Brain-Icon.png" alt="">SkillShare</a>
+
+<head>
+  <meta charset="utf-8">
+  <title>SkillShare</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+  <link rel="stylesheet" href="./styles/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <header>
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <a href="./index.html" class="brand-logo"><img id="brain" src="./Brain-Icon.png" alt="">SkillShare</a>
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    <div class="row">
+
+      <section class="col m6 s12 card center-align">
+        <div class="col s12">
+          <ul class="tabs tabs-fixed-width">
+            <li class="tab col s6"><a class="active" href="#signin">Sign In</a></li>
+            <li class="tab col s6"><a href="#signup">Sign Up</a></li>
+          </ul>
         </div>
-      </nav>
-    </header>
-    <main class="container">
-      <div class="row">
-        <section class="col m6 s12 card center-align">
-          <h2>Log In</h2>
+
+        <div id="signin">
+          <h2>Sign In</h2>
           <form class="form login">
             <div class="row">
               <span class="col s3"></span>
@@ -41,33 +52,67 @@
               </div>
             </div>
           </form>
-        </section>
-        <section id="skills" class="col m6 s12 card center-align">
-          <h2>Skills</h2>
-          <ul id="skills-list">
-          </ul>
-        </section>
+        </div>
+
+        <div id="signup">
+          <h2>Sign Up</h2>
+          <form class="form signin">
+            <div class="row">
+              <span class="col s3"></span>
+              <div class="input-field col s6">
+                <input id="email" name="signup-email" type="text" class="validate">
+                <label for="email">Email</label>
+              </div>
+            </div>
+            <div class="row">
+              <span class="col s3"></span>
+              <div class="input-field col s6">
+                <input id="username" name="signup-username" type="text" class="validate">
+                <label for="username">Username</label>
+              </div>
+            </div>
+            <div class="row">
+              <span class="col s3"></span>
+              <div class="input-field col s6">
+                <input id="password" name="signup-password" type="text" class="validate">
+                <label for="password">Password</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input class="btn signupBtn" type="submit" name="submit" value="signup">
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+
+      <section id="skills" class="col m6 s12 card center-align">
+        <h2>Skills</h2>
+        <ul id="skills-list">
+        </ul>
+      </section>
+    </div>
+  </main>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l8 s12">
+          <h5 class="white-text">About</h5>
+          <p class="grey-text text-lighten-4">Connect with people that you can learn from and who want to learn from you. Share your knowledge while simultaneously learning new skills.</p>
+        </div>
       </div>
-    </main>
-    <footer class="page-footer">
+    </div>
+    <div class="footer-copyright">
       <div class="container">
-        <div class="row">
-          <div class="col l8 s12">
-            <h5 class="white-text">About</h5>
-            <p class="grey-text text-lighten-4">Connect with people that
-              you can learn from and who want to learn from you. Share your
-              knowledge while simultaneously learning new skills.</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-copyright">
-        <div class="container">
         © 2017 SkillShare
-        </div>
       </div>
-    </footer>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
-    <script src="./scripts/app.js" charset="utf-8"></script>
-  </body>
+    </div>
+  </footer>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+  <script src="./scripts/app.js" charset="utf-8"></script>
+</body>
+
 </html>
