@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
     <link rel="stylesheet" href="./styles/styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body>
@@ -39,6 +40,8 @@
               <div class="card-action">
                 <a class="modal-trigger" href="#edit-profile">Edit Profile</a>
                 <a class="modal-trigger" href="#edit-skills">Edit Skills</a>
+                  <a class="modal-trigger" href="#connections"> <i class="material-icons" style="font-size:18px"> people</i></a>
+
               </div>
             </div>
           </div>
@@ -109,6 +112,30 @@
               <input class="btn modal-close" type="submit" value="Save">
             </div>
           </form>
+        </div>
+      </div>
+      <div id="connections" class="modal">
+        <div class="modal-content">
+          <h4 class="center">Connections</h4>
+
+            <div class="row">
+              <div id="Pending" class="col m6">
+                <h5>Pending </h5>
+              </div>
+              <div id="Connected" class="col m6">
+                <h5>Connected</h5>
+              </div>
+            </div>
+
+            <div class="row">
+              <div id="Requests" class="col m12">
+                <h5>Requests</h5>
+              </div>
+
+            </div>
+
+
+
         </div>
       </div>
       <div id="match-modal" class="modal">

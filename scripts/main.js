@@ -1,5 +1,5 @@
 // const decodedToken = parseJWT(localStorage.getItem('token'))
-var userId = 1 // The user ID of the person logged in
+var userId = 2 // The user ID of the person logged in
 const baseURL = 'https://young-peak-51032.herokuapp.com/'
 // const baseURL = 'http://localhost:8080/'
 
@@ -35,6 +35,7 @@ function showUserProfile(data) { // THIS WORKS
 	$('#email').val(data[0].email)
 	$('#phone').val(data[0].phone)
 	$('#bio').val(data[0].bio)
+	$('.card-image img').attr({src: `${data[0].photo}`})
 	Materialize.updateTextFields()
 };
 
@@ -103,6 +104,7 @@ function updateSkillLearn() { // THIS WORKS
 				$('#skills-want').append(skill)
 				$.get(`${baseURL}users/matches/${userId}`)
 				.then(appendSkillMatches)
+
 			}
 		})
 	}
@@ -131,7 +133,7 @@ function appendSkillMatches(data) { // THIS WORKS
 	$('#matches li.collection-item').remove()
 	for (let i = 0; i < data.length; i++) {
 		let match = `<li class="collection-item avatar">
-                  <img src="http://www.cdn.innesvienna.net//Content/user-default.png"
+                  <img src="${data[i].photo}"
                   alt="${data[i].name}" class="circle">
                   <span class="title"><b>${data[i].name}</b></span>
                   <p>Can Teach You: ${listOfSkills(data[i].skills)}<br>
@@ -183,7 +185,7 @@ function updateImage() {
 	let formData = new FormData()
 	formData.append('image', img)
 	$.ajax({
-		url: `${baseURL}image/image/${userId}`,
+		url: `${baseURL}image/${userId}`,
 		data: formData,
 		processData: false,
 		contentType: false,
@@ -198,5 +200,6 @@ function updateImage() {
 }
 
 function displayImage() {
-	console.log('HAY');
+	$.get(`${baseURL}users/${userId}`)
+		.then(showUserProfile)
 }
