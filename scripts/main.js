@@ -86,13 +86,13 @@ function updateProfile(event) { // THIS WORKS
 function updateSkills(event) {
 	event.preventDefault()
 	updateSkillLearn()
-	// updateSkillsHave()
-}
+	updateSkillsHave()
+};
 
 function updateSkillLearn() { // THIS WORKS
 	let id = $("input[type='radio']:checked").val()
 	let skill = `<p class="want">${$("input[type='radio']:checked").attr('id')}</p>`
-	if (skill !== undefined) {
+	if ($(skill).text() != 'undefined') {
 		$.ajax({
 			url: `${baseURL}users/${userId}`,
 			type: 'PUT',
@@ -103,23 +103,28 @@ function updateSkillLearn() { // THIS WORKS
 				$('p.want').remove()
 				$('#skills-want').append(skill)
 				$.get(`${baseURL}users/matches/${userId}`)
-				.then(appendSkillMatches)
-
+					.then(appendSkillMatches)
 			}
 		})
 	}
 }
 
-// function updateSkillsHave() {
-// 	let skillsArray = $('input[type="checkbox"]:checked')
-// 	let data = pullIds(skillsArray) // array of values
-// 	$.post(`${baseURL}users/skills/${userId}`, data)
-// }
+function updateSkillsHave() { // THIS WORKS
+	let skillsArray = $('input.add[type="checkbox"]:checked')
+	$.ajax({
+		url: `${baseURL}users/skills/${userId}`,
+		type: 'POST',
+		contentType:	"application/json",
+		data: JSON.stringify({
+			skills_id: pullIds(skillsArray)
+		})
+	})
+};
 
-function pullIds(array) {
+function pullIds(array) { // THIS WORKS
 	let output = []
 	for (var i = 0; i < array.length; i++) {
-		output.push({skills_id: $(array[i]).attr('id').charAt(0)})
+		output.push(Number($(array[i]).val()))
 	}
 	return output
 };
