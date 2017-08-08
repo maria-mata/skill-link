@@ -1,16 +1,18 @@
-const baseURL = 'https://young-peak-51032.herokuapp.com/'
-// const baseURL = 'http://localhost:8080/'
+// const baseURL = 'https://young-peak-51032.herokuapp.com/'
+const baseURL = 'http://localhost:8080/'
 
 $(document).ready(function() {
 	authorizeUser()
 	$('.chips').material_chip()
 	$('.button-collapse').sideNav()
 	$('form.login').submit(logIn)
+	$('form.signup').submit(signup)
 
 	$.get(`${baseURL}skills`)
 		.then(appendSkills)
 
 });
+
 
 function appendSkills(data) {
 	for (let i = 0; i < data.length; i++) {
@@ -22,6 +24,28 @@ function appendSkills(data) {
 		$('#skills-list').append(skill)
 	}
 };
+
+function signup(event) {
+	event.preventDefault()
+	const name = $('input[name=signup-name]').val()
+	const email = $('input[name=signup-email]').val()
+	const username = $('input[name=signup-username]').val()
+	const password = $('input[name=signup-password]').val()
+	const data = {
+		name,
+		email,
+		username,
+		password
+	}
+	$.post(`${baseURL}auth/signup`, data).then(res => {
+		if (res.error) {
+			alert(res.error)
+		} else {
+			alert('Sign up successful.')
+			// location.href = '/'
+		}
+	})
+}
 
 function logIn(event) {
 	event.preventDefault()
