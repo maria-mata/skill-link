@@ -40,6 +40,7 @@ function showUserProfile(data) { // THIS WORKS
 };
 
 function showSkillsHave(data) { // THIS WORKS
+	$('#skills-have > p').remove()
 	for (let i = 0; i < data.length; i++) {
 		let skill = `<p>
 		<input class="skill" type="checkbox" checked="checked" id="${data[i].id}-have"/>
@@ -50,6 +51,9 @@ function showSkillsHave(data) { // THIS WORKS
 };
 
 function showAllSkills(data) { // THIS WORKS
+	$('#change-learn > p').remove()
+	$('#skills-have > p').remove()
+	$('#add-skills > p').remove()
 	for (let i = 0; i < data.length; i++) {
 		let skillChange = `<p>
       <input name="group1" type="radio" id="${data[i].name}" value=${data[i].id}>
@@ -87,6 +91,8 @@ function updateSkills(event) {
 	event.preventDefault()
 	updateSkillLearn()
 	updateSkillsHave()
+	$.get(`${baseURL}users/matches/${userId}`)
+	.then(appendSkillMatches)
 };
 
 function updateSkillLearn() { // THIS WORKS
@@ -117,7 +123,13 @@ function updateSkillsHave() { // THIS WORKS
 		contentType:	"application/json",
 		data: JSON.stringify({
 			skills_id: pullIds(skillsArray)
-		})
+		}),
+		success: function() {
+			$.get(`${baseURL}skills`)
+				.then(showAllSkills)
+			$.get(`${baseURL}users/skills/${userId}`)
+				.then(showSkillsHave)
+		}
 	})
 };
 
