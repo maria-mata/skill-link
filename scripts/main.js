@@ -1,7 +1,7 @@
 // const decodedToken = parseJWT(localStorage.getItem('token'))
 var userId = 1 // The user ID of the person logged in
-// const baseURL = 'https://young-peak-51032.herokuapp.com/'
-const baseURL = 'http://localhost:8080/'
+const baseURL = 'https://young-peak-51032.herokuapp.com/'
+// const baseURL = 'http://localhost:8080/'
 
 $(document).ready(function() {
 	$('.button-collapse').sideNav()
@@ -75,8 +75,8 @@ function appendConnectionRequests(data) {
 		$('#Requests').append(name)
 		$(`#${data[i].id}-accept`).click(acceptRequest);
 		$(`#${data[i].id}-deny`).click(denyRequest)
-		}
 	}
+}
 
 function appendConnected(data) {
 	$('#Connected > p').remove()
@@ -129,7 +129,9 @@ function showUserProfile(data) { // THIS WORKS
 	$('#email').val(data[0].email)
 	$('#phone').val(data[0].phone)
 	$('#bio').val(data[0].bio)
-	$('.card-image img').attr({src: `${data[0].photo}`})
+	$('.card-image img').attr({
+		src: `${data[0].photo}`
+	})
 	Materialize.updateTextFields()
 };
 
@@ -185,7 +187,7 @@ function updateSkills(event) {
 	updateSkillLearn()
 	updateSkillsHave()
 	$.get(`${baseURL}users/matches/${userId}`)
-	.then(appendSkillMatches)
+		.then(appendSkillMatches)
 };
 
 function updateSkillLearn() { // THIS WORKS
@@ -213,7 +215,7 @@ function updateSkillsHave() { // THIS WORKS
 	$.ajax({
 		url: `${baseURL}users/skills/${userId}`,
 		type: 'POST',
-		contentType:	"application/json",
+		contentType: "application/json",
 		data: JSON.stringify({
 			skills_id: pullIds(skillsArray)
 		}),
