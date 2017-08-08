@@ -1,5 +1,5 @@
-// const decodedToken = parseJWT(localStorage.getItem('token'))
-var userId = 1 // The user ID of the person logged in
+const decodedToken = parseJWT(localStorage.getItem('token'))
+var userId = decodedToken // The user ID of the person logged in
 const baseURL = 'https://young-peak-51032.herokuapp.com/'
 // const baseURL = 'http://localhost:8080/'
 
