@@ -41,9 +41,9 @@ function signup(event) {
 		if (res.error) {
 			alert(res.error)
 		} else {
-			console.log(res);
 			alert('Sign up successful.')
-			// location.href = '/'
+			localStorage.setItem('token', res.data)
+			location.href = '/main.html'
 		}
 	})
 }
