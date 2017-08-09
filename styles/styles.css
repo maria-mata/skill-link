@@ -2,10 +2,14 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background: url('http://www.lauchlan-leishman.com/wp-content/uploads/2013/03/Loops-Background-1024x417.jpg');
 }
 
 main {
   flex: 1 0 auto;
+}
+#loginBox {
+  height: 44vh;
 }
 
 a.brand-logo, nav li a, #skills-list i.material-icons, main h2 {
@@ -23,12 +27,47 @@ a.brand-logo, nav li a, #skills-list i.material-icons, main h2 {
   padding-bottom: 0.5vh;
 }
 
-#skills {
-  height: 60.5vh;
-  overflow: scroll;
+h4 {
+  display: flex;
+  justify-content: center;
 }
 
-.page-footer, .btn {
+#skills {
+  height: 60vh;
+  max-height: 60.5vh;
+  overflow: scroll;
+}
+#img {
+  max-height: 40vh;
+  overflow: hidden;
+  border: 3px solid white;
+}
+
+#matches {
+  height: 56.5vh;
+  max-height: 56.5vh;
+  background-color: white;
+  overflow: scroll;
+  font-family: monospace;
+
+}
+
+#profileName {
+  color: white;
+  text-shadow: -4px 0 black, 0 2px black, 2px 0 black, 0 -4px black;
+  font-weight: bold;
+}
+.about {
+  font-family: monospace;
+}
+.page-footer {
+  color: rgb(82, 182, 161);
+  background-color: white;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.btn {
   background-color: rgb(82, 182, 161);
 }
 

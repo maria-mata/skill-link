@@ -24,7 +24,7 @@
     </header>
     <main class="container">
       <div class="row">
-        <section class="col m8 s12">
+        <section class= "col m8 s12">
           <ul id="matches" class="collection with-header">
             <!-- Append suggested contacts here ^^ -->
             <li class="collection-header"><h4>Suggested Matches</h4></li>
@@ -34,13 +34,15 @@
           <div class="col m4 s12">
             <div class="card">
               <div class="card-image">
-                <img src="http://www.cdn.innesvienna.net//Content/user-default.png">
-                <span class="card-title"></span>
+                <img id="img" src="http://www.cdn.innesvienna.net//Content/user-default.png">
+                <span id="profileName" class="card-title">welcome</span>
               </div>
               <div class="card-action">
-                <a class="modal-trigger" href="#edit-profile">Edit Profile</a>
-                <a class="modal-trigger" href="#edit-skills">Edit Skills</a>
-                  <a class="modal-trigger" href="#connections"> <i class="material-icons" style="font-size:18px"> people</i></a>
+                <a class="modal-trigger" href="#edit-profile"><i class="material-icons">edit</i> Profile</a>
+                <br>
+                <a class="modal-trigger" href="#edit-skills"><i class="material-icons">edit</i> Skills</a>
+                <br>
+                <a class="modal-trigger" href="#connections"> <i class="material-icons" style="font-size:18px"> people</i> Matches</a>
 
               </div>
             </div>
@@ -117,7 +119,6 @@
       <div id="connections" class="modal">
         <div class="modal-content">
           <h4 class="center">Connections</h4>
-
             <div class="row">
               <div id="Pending" class="col m6">
                 <h5>Pending </h5>
@@ -131,11 +132,7 @@
               <div id="Requests" class="col m12">
                 <h5>Requests</h5>
               </div>
-
             </div>
-
-
-
         </div>
       </div>
       <div id="match-modal" class="modal">
@@ -147,23 +144,32 @@
         </div>
       </div>
     </main>
-    <footer class="page-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col l8 s12">
-            <h5 class="white-text">About</h5>
-            <p class="grey-text text-lighten-4">Connect with people that
-              you can learn from and who want to learn from you. Share your
-              knowledge while simultaneously learning new skills.</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-copyright">
-        <div class="container">
-        © 2017 SkillShare
-        </div>
-      </div>
-    </footer>
+      <footer class="page-footer">
+         <div class="container">
+           <div class="row">
+             <div class="col l6 s12">
+               <h5 class="black-text about">About SkillShare</h5>
+               <p class="black-text text-lighten-4">Connect with people that
+                 you can learn from and who want to learn from you. Share your
+                 knowledge while simultaneously learning new skills.</p>
+             </div>
+             <div class="col l4 offset-l2 s12">
+               <h5 class="black-text">Links</h5>
+               <ul>
+                 <li><a class="blue-text text-lighten-3" href="#!">Tyler Keesling</a></li>
+                 <li><a class="blue-text text-lighten-3" href="#!">Yousif</a></li>
+                 <li><a class="blue-text text-lighten-3" href="https://github.com/maria-mata">Maria Mata</a></li>
+                 <li><a class="blue-text text-lighten-3" href="https://github.com/lcrewss">Logan Crewss</a></li>
+               </ul>
+             </div>
+           </div>
+         </div>
+         <div class="footer-copyright">
+           <div class="black-text container">
+           © 2014 Copyright Text
+           </div>
+         </div>
+       </footer>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
     <script src="./scripts/main.js" charset="utf-8"></script>
