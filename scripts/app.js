@@ -2,6 +2,7 @@ const baseURL = 'https://young-peak-51032.herokuapp.com/'
 // const baseURL = 'http://localhost:8080/'
 
 $(document).ready(function() {
+	localStorage.removeItem('token')
 	authorizeUser()
 	$('.chips').material_chip()
 	$('.button-collapse').sideNav()
@@ -66,6 +67,7 @@ function logIn(event) {
 				alert(res.error)
 			} else {
 				localStorage.setItem('token', res.data)
+				console.log(localStorage.getItem('token'))
 				location.href = '/main.html'
 			}
 		})

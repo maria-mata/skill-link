@@ -1,3 +1,4 @@
+
 const decodedToken = parseJWT(localStorage.getItem('token'))
 var userId = decodedToken // The user ID of the person logged in
 const baseURL = 'https://young-peak-51032.herokuapp.com/'
@@ -51,7 +52,7 @@ function sendConnectionInvite(event) {
 		type: 'POST',
 		data: body,
 		success: function() {
-			console.log('success!');
+
 			$.get(`${baseURL}users/connection/sent/${userId}`)
 				.then(appendSentConnections)
 		}
@@ -99,6 +100,7 @@ function acceptRequest(event) {
 		data: body,
 		success: function() {
 			console.log('success!');
+			location.reload()
 			// still need re-append everything
 		}
 	})
@@ -116,7 +118,7 @@ function denyRequest(event) {
 		type: 'DELETE',
 		data: body,
 		success: function() {
-			console.log('success!');
+
 			// still need re-append everything
 		}
 	})
@@ -136,13 +138,15 @@ function showUserProfile(data) { // THIS WORKS
 };
 
 function showSkillsHave(data) { // THIS WORKS
-	$('#skills-have > p').remove()
+
+	// $('#skills-have > p').remove()
 	for (let i = 0; i < data.length; i++) {
 		let skill = `<p>
 		<input class="skill" type="checkbox" checked="checked" id="${data[i].id}-have"/>
 		<label for="${data[i].id}-have">${data[i].name}</label>
 		</p>`
 		$('#skills-have').append(skill)
+
 	}
 };
 
