@@ -1,10 +1,15 @@
 # SkillShare Frontend
 Connect with people that you can learn from and who want to learn from you. Share your knowledge while simultaneously learning new skills.
-![WireFrame_screenshot](https://github.com/maria-mata/SkillShare-Frontend/blob/master/WireFrame_screenshot.png)
-![WireFrame_HomePage](https://github.com/maria-mata/SkillShare-Frontend/blob/master/WireFrame_HomePage.png)
+
 
 ## Built With (Front End)
 HTML, CSS, Materialize, JavaScript, and JQuery.
 
 ## Deploy URL
 https://skillshare-19db4.firebaseapp.com/
+
+
+## Wireframe
+
+![wireframe_homepage](https://user-images.githubusercontent.com/26422332/29132626-14554c00-7cee-11e7-83e6-a5ce63445722.png)
+![wireframe_screenshot](https://user-images.githubusercontent.com/26422332/29132634-1eb214c6-7cee-11e7-994e-4c4fbd69910b.png)
