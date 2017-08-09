@@ -1,5 +1,7 @@
 # SkillShare Frontend
 Connect with people that you can learn from and who want to learn from you. Share your knowledge while simultaneously learning new skills.
+![WireFrame_screenshot](https://github.com/maria-mata/SkillShare-Frontend/blob/master/WireFrame_screenshot.png)
+![WireFrame_HomePage](https://github.com/maria-mata/SkillShare-Frontend/blob/master/WireFrame_HomePage.png)
 
 ## Built With (Front End)
 HTML, CSS, Materialize, JavaScript, and JQuery.
