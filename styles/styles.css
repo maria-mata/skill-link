@@ -80,3 +80,8 @@ h4 {
   height: 2%;
   width: 2%;
 }
+
+.connection {
+  max-width: 3em !important;
+  max-height: 3em !important;
+}

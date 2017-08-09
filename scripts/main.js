@@ -1,5 +1,5 @@
-// const decodedToken = parseJWT(localStorage.getItem('token'))
-var userId = 2 // The user ID of the person logged in
+const decodedToken = parseJWT(localStorage.getItem('token'))
+var userId = decodedToken // The user ID of the person logged in
 const baseURL = 'https://young-peak-51032.herokuapp.com/'
 // const baseURL = 'http://localhost:8080/'
 
@@ -23,10 +23,104 @@ $(document).ready(function() {
 	$.get(`${baseURL}users/matches/${userId}`)
 		.then(appendSkillMatches)
 
+	$.get(`${baseURL}users/connection/sent/${userId}`)
+		.then(appendSentConnections)
+
+	$.get(`${baseURL}users/connection/request/${userId}`)
+		.then(appendConnectionRequests)
+
+	$.get(`${baseURL}users/connection/connected/${userId}`)
+		.then(appendConnected)
+
 	$('#user-put').submit(updateProfile)
 	$('#skills-put').submit(updateSkills) // **
+	$('#connect').click(sendConnectionInvite)
 
 });
+
+function sendConnectionInvite(event) {
+	event.preventDefault()
+	let id = $(this).val()
+	let body = {
+		userSendInvite_id: userId,
+		userRecievedInvite_id: id,
+		acceptStatus: 0
+	}
+	$.ajax({
+		url: `${baseURL}users/connection`,
+		type: 'POST',
+		data: body,
+		success: function() {
+			console.log('success!');
+			$.get(`${baseURL}users/connection/sent/${userId}`)
+				.then(appendSentConnections)
+		}
+	})
+}
+
+function appendSentConnections(data) {
+	$('#Sent > p').remove()
+	for (let i = 0; i < data.length; i++) {
+		let name = `<p>${data[i].name}</p>`
+		$('#Sent').append(name)
+	}
+}
+
+function appendConnectionRequests(data) {
+	$('#Requests > p').remove()
+	for (let i = 0; i < data.length; i++) {
+		let name = `<p>${data[i].name}  <a id="${data[i].id}-accept"><span>ACCEPT</span></a>
+		  <a id="${data[i].id}-deny"><span>DENY</span></a>
+		</p>`
+		$('#Requests').append(name)
+		$(`#${data[i].id}-accept`).click(acceptRequest);
+		$(`#${data[i].id}-deny`).click(denyRequest)
+	}
+}
+
+function appendConnected(data) {
+	$('#Connected > p').remove()
+	for (let i = 0; i < data.length; i++) {
+		let name = `<p>${data[i].name}</p>`
+		$('#Connected').append(name)
+	}
+}
+
+function acceptRequest(event) {
+	event.preventDefault()
+	let id = $(this).attr('id').charAt(0)
+	let body = {
+		userSendInvite_id: id,
+		userRecievedInvite_id: userId
+	}
+	$.ajax({
+		url: `${baseURL}users/connection/accept`,
+		type: 'PUT',
+		data: body,
+		success: function() {
+			console.log('success!');
+			// still need re-append everything
+		}
+	})
+}
+
+function denyRequest(event) {
+	event.preventDefault()
+	let id = $(this).attr('id').charAt(0)
+	let body = {
+		userSendInvite_id: id,
+		userRecievedInvite_id: userId
+	}
+	$.ajax({
+		url: `${baseURL}users/connection/deny`,
+		type: 'DELETE',
+		data: body,
+		success: function() {
+			console.log('success!');
+			// still need re-append everything
+		}
+	})
+}
 
 function showUserProfile(data) { // THIS WORKS
 	// missing photo display
@@ -35,7 +129,9 @@ function showUserProfile(data) { // THIS WORKS
 	$('#email').val(data[0].email)
 	$('#phone').val(data[0].phone)
 	$('#bio').val(data[0].bio)
-	$('.card-image img').attr({src: `${data[0].photo}`})
+	$('.card-image img').attr({
+		src: `${data[0].photo}`
+	})
 	Materialize.updateTextFields()
 };
 
@@ -75,7 +171,6 @@ function updateProfile(event) { // THIS WORKS
 		url: `${baseURL}users/${userId}`,
 		type: 'PUT',
 		data: {
-			// missing photo part
 			name: $('#name').val(),
 			email: $('#email').val(),
 			phone: $('#phone').val(),
@@ -92,7 +187,7 @@ function updateSkills(event) {
 	updateSkillLearn()
 	updateSkillsHave()
 	$.get(`${baseURL}users/matches/${userId}`)
-	.then(appendSkillMatches)
+		.then(appendSkillMatches)
 };
 
 function updateSkillLearn() { // THIS WORKS
@@ -120,7 +215,7 @@ function updateSkillsHave() { // THIS WORKS
 	$.ajax({
 		url: `${baseURL}users/skills/${userId}`,
 		type: 'POST',
-		contentType:	"application/json",
+		contentType: "application/json",
 		data: JSON.stringify({
 			skills_id: pullIds(skillsArray)
 		}),
@@ -175,6 +270,7 @@ function showMatchProfile(match) { // THIS WORKS
         <p><b>Phone:</b>  ${match.phone}</p>
         <p><b>Can Teach You:</b> ${listOfSkills(match.skills)}</p>
         <p><b>Wants to Learn:</b>  ${match.skills_name}</p>`
+	$('#connect').val(match.id)
 	$('#match-modal > div.modal-content').append(content)
 }
 
