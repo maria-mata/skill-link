@@ -5,13 +5,19 @@ Connect with people that you can learn from and who want to learn from you. Shar
 ## Built With (Front End)
 HTML, CSS, Materialize, JavaScript, and JQuery.
 
+## Built with (Back End)
+Knex, Node, Express
+
 ## Deploy URL
 https://skillshare-19db4.firebaseapp.com/
 
 ## Created By (linked to individual github acct): 
 [Maria-Mata](https://github.com/maria-mata)
+<br>
 [Tyler Keesling](https://github.com/tylerkeesling)
+<br>
 [Logan Crewss](https://github.com/lcrewss)
+<br>
 [Yousif Altimimie](https://github.com/yousif83)
 
 
