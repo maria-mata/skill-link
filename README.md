@@ -1,6 +1,7 @@
 # SkillShare Frontend
-Connect with people that you can learn from and who want to learn from you. Share your knowledge while simultaneously learning new skills.
+Connect with people that you can learn from and who want to learn from you. Share your knowledge while simultaneously learning new skills. 🎥 Demo linked below! 👇🏼
 
+[![SkillShare Demo](https://www.youtube.com/watch?v=myxCgDfd6xQ&feature=youtu.be)
 
 ## Built With (Front End)
 HTML, CSS, Materialize, JavaScript, and JQuery.
