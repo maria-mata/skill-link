@@ -32,10 +32,14 @@ function signup(event) {
 	const username = $('input[name=signup-username]').val()
 	const password = $('input[name=signup-password]').val()
 	const data = {
-		name,
-		email,
-		username,
-		password
+		name: name,
+		email: email,
+		username: username,
+		password: password,
+		bio: "",
+		photo: "http://emblemsbattlefield.com/uploads/posts/2014/10/facebook-default-photo-male_1.jpg",
+		phone: "",
+		skill_learn: 1
 	}
 	$.post(`${baseURL}auth/signup`, data).then(res => {
 		if (res.error) {
