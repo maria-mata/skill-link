@@ -62,7 +62,7 @@ function sendConnectionInvite(event) {
 function appendSentConnections(data) {
 	$('#Sent > p').remove()
 	for (let i = 0; i < data.length; i++) {
-		let name = `<p>${data[i].name}</p>`
+		let name = `<p class="names">${data[i].name}</p>`
 		$('#Sent').append(name)
 	}
 }
@@ -70,8 +70,8 @@ function appendSentConnections(data) {
 function appendConnectionRequests(data) {
 	$('#Requests > p').remove()
 	for (let i = 0; i < data.length; i++) {
-		let name = `<p>${data[i].name}  <a id="${data[i].id}-accept"><span>ACCEPT</span></a>
-		  <a id="${data[i].id}-deny"><span>DENY</span></a>
+		let name = `<p class="names">${data[i].name}  <a class="accept" id="${data[i].id}-accept"><i class="material-icons">check</i></a>
+		  <a class="deny" id="${data[i].id}-deny"><i class="material-icons">clear</i></a>
 		</p>`
 		$('#Requests').append(name)
 		$(`#${data[i].id}-accept`).click(acceptRequest);
@@ -82,7 +82,7 @@ function appendConnectionRequests(data) {
 function appendConnected(data) {
 	$('#Connected > p').remove()
 	for (let i = 0; i < data.length; i++) {
-		let name = `<p>${data[i].name}</p>`
+		let name = `<p class="names">${data[i].name}</p>`
 		$('#Connected').append(name)
 	}
 }

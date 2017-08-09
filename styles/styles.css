@@ -12,8 +12,21 @@ main {
   height: 44vh;
 }
 
-a.brand-logo, nav li a, #skills-list i.material-icons, main h2 {
+a.brand-logo, nav li a, #skills-list i.material-icons, main h2, #tabs li a {
   color:  rgb(82, 182, 161);
+}
+
+li.indicator {
+  background-color: rgb(82, 182, 161) !important;
+}
+
+.connections-heading {
+  background-color: #eeeeee;
+  padding: 0.1em;
+}
+
+hr {
+  color: #eeeeee;
 }
 
 #brain {
@@ -57,6 +70,7 @@ h4 {
   text-shadow: -4px 0 black, 0 2px black, 2px 0 black, 0 -4px black;
   font-weight: bold;
 }
+
 .about {
   font-family: monospace;
 }
@@ -84,4 +98,16 @@ h4 {
 .connection {
   max-width: 3em !important;
   max-height: 3em !important;
+}
+
+a.accept {
+  margin-left: 3em;
+}
+
+a.deny {
+  margin-left: 1em;
+}
+
+p.names {
+  font-size: 18px !important;
 }
