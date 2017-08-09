@@ -8,6 +8,12 @@ HTML, CSS, Materialize, JavaScript, and JQuery.
 ## Deploy URL
 https://skillshare-19db4.firebaseapp.com/
 
+## Created By (linked to individual github acct): 
+[Maria-Mata](https://github.com/maria-mata)
+[Tyler Keesling](https://github.com/tylerkeesling)
+[Logan Crewss](https://github.com/lcrewss)
+[Yousif Altimimie](https://github.com/yousif83)
+
 
 ## Wireframe
 
