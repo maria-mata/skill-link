@@ -2,24 +2,23 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  font-family: 'Open Sans', sans-serif;
 }
 
 main {
   flex: 1 0 auto;
 }
 
-a.brand-logo, nav li a, i.material-icons, main h2, #tabs li a {
-  color:  rgb(82, 182, 161);
+a.brand-logo, i.material-icons, main h2, main h4, #tabs li a, .modal-trigger {
+  color:  rgb(82, 182, 161) !important;
+}
+
+a.brand-logo, nav li a, main h2, #tabs li a {
+  font-family: 'Nunito', sans-serif;
 }
 
 li.indicator {
   background-color: rgb(82, 182, 161) !important;
-}
-
-#brain {
-  max-height: 1.5em;
-  vertical-align: bottom;
-  margin: 0;
 }
 
 .material-icons {
@@ -27,11 +26,16 @@ li.indicator {
   padding-bottom: 0.5vh;
 }
 
-#skills {
-  max-height: 50vh;
+section {
+  height: 65vh;
   overflow: scroll;
 }
 
 .page-footer, .btn {
   background-color: rgb(82, 182, 161);
+}
+
+#img {
+  max-height: 80vh;
+  overflow: hidden;
 }
