@@ -1,28 +1,19 @@
-# SkillShare Frontend
-Connect with people that you can learn from and who want to learn from you. Share your knowledge while simultaneously learning new skills. 🎥 Demo linked below! 👇🏼
+## About
+[SkillShare](https://skill-share-8f180.firebaseapp.com/) is a mentor pairing application for individuals that are interested in both teaching and learning new technical skills. This was a group project completed in the program at Galvanize. This version has been further styled by me, but the original features are the same.
 
-https://www.youtube.com/watch?v=myxCgDfd6xQ&feature=youtu.be
+### Tech Notes
+* Created with Node, Express, Knex, JavaScript, jQuery, Materialize, HTML, CSS, Heroku, and Firebase.
+* Back-end repo available [here](https://github.com/maria-mata/SkillShare-Backend)
 
-## Built With (Front End)
-HTML, CSS, Materialize, JavaScript, and JQuery.
+### How To Use
+* Log in or sign up to see your profile and mentor suggestions
+(gif coming soon...)
 
-## Built with (Back End)
-Knex, Node, Express
+* Edit your skills
+(gif coming soon...)
 
-## Deploy URL
-https://skillshare-19db4.firebaseapp.com/
+* Send a connection request to a potential mentor
+(gif coming soon...)
 
-## Created By (linked to individual github acct): 
-[Maria-Mata](https://github.com/maria-mata)
-<br>
-[Tyler Keesling](https://github.com/tylerkeesling)
-<br>
-[Logan Crewss](https://github.com/lcrewss)
-<br>
-[Yousif Altimimie](https://github.com/yousif83)
-
-
-## Wireframe
-
-![wireframe_homepage](https://user-images.githubusercontent.com/26422332/29132626-14554c00-7cee-11e7-83e6-a5ce63445722.png)
-![wireframe_screenshot](https://user-images.githubusercontent.com/26422332/29132634-1eb214c6-7cee-11e7-994e-4c4fbd69910b.png)
+* Accept or deny a connection request
+(gif coming soon...)
