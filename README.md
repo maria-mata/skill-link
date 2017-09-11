@@ -7,13 +7,13 @@
 
 ### How To Use
 * Log in or sign up to see your profile and mentor suggestions
-(gif coming soon...)
+![login](/demo/login.gif)
 
 * Send a connection request to a potential mentor
-(gif coming soon...)
+![connect](/demo/connect.gif)
 
-* Edit your profile or skills
-(gif coming soon...)
+* Edit your skills
+![edit-skills](/demo/skills.gif)
 
 * Accept or deny a connection request
-(gif coming soon...)
+![accept](/demo/accept.gif)
