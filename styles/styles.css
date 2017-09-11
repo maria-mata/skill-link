@@ -35,6 +35,14 @@ section {
   background-color: rgb(82, 182, 161);
 }
 
+.footer-copyright > div a {
+  color: inherit;
+}
+
+.footer-copyright > div a:hover {
+  text-decoration: underline;
+}
+
 #img {
   max-height: 80vh;
   overflow: hidden;
