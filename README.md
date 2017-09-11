@@ -9,10 +9,10 @@
 * Log in or sign up to see your profile and mentor suggestions
 (gif coming soon...)
 
-* Edit your skills
+* Send a connection request to a potential mentor
 (gif coming soon...)
 
-* Send a connection request to a potential mentor
+* Edit your profile or skills
 (gif coming soon...)
 
 * Accept or deny a connection request
