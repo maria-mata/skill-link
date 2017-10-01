@@ -1,5 +1,5 @@
 ## About
-[SkillShare](https://skill-share-8f180.firebaseapp.com/) is a mentor pairing application for individuals that are interested in both teaching and learning new technical skills. This was a group project completed in the program at Galvanize. This version has been further styled by me, but the original features are the same.
+[Skill Link](https://skill-share-8f180.firebaseapp.com/) is a mentor pairing application for individuals that are interested in both teaching and learning new technical skills. This was a group project completed in the program at Galvanize. This version has been further styled by me, but the original features are the same.
 
 ### Tech Notes
 * Created with Node, Express, Knex, JavaScript, jQuery, Materialize, HTML, CSS, Heroku, and Firebase.
